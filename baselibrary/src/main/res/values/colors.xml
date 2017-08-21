@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--聊天框-->
+    <color name="color_input_dialog_background">#b4ffffff</color>
+    <color name="colorTransparentBlack">#44777777</color>
+    <color name="c9">#777777</color>
+    <color name="item_live_chat">#1D1B31</color>
+    <color name="live_tip_btn">#0000cc</color>
+    <color name="black">#000000</color>
+    <color name="canlendar_text_color">#969696</color>
+
+</resources>
