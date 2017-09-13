@@ -2,6 +2,7 @@ package com.mark.baselibrary.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
@@ -15,7 +16,7 @@ import butterknife.Unbinder;
  * Created by Mark.Han on 2017/7/10.
  */
 
-public abstract class BaseActivity<P extends BasePresenterImp> extends AppCompatActivity {
+public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity {
 
     protected P mPresenter;
     private Unbinder mUnbinder;
@@ -24,7 +25,6 @@ public abstract class BaseActivity<P extends BasePresenterImp> extends AppCompat
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        mUnbinder = ButterKnife.bind(this);
         mPresenter = getPresenter();
         if (mPresenter != null) {
             if (this instanceof BaseView)
@@ -32,6 +32,12 @@ public abstract class BaseActivity<P extends BasePresenterImp> extends AppCompat
         }
         initView();
         initData();
+    }
+
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
+        mUnbinder = ButterKnife.bind(this);
     }
 
     protected abstract int getLayoutId();

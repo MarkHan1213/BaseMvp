@@ -13,7 +13,7 @@ ext {
             androidSupportSdkVersion: "26.+",
             retrofitSdkVersion      : "2.3.0",
             dagger2SdkVersion       : "2.10",
-            butterknifeSdkVersion   : "8.6.0",
+            butterknifeSdkVersion   : "8.8.1",
             rxlifecycleSdkVersion   : "1.0",
             rxlifecycle2SdkVersion  : "2.0.1",
             espressoSdkVersion      : "2.2.2",
@@ -55,6 +55,7 @@ ext {
             "nineoldandroids"          : "com.nineoldandroids:library:2.4.0",
             "paginate"                 : "com.github.markomilos:paginate:0.5.1",
             "vlayout"                  : "com.alibaba.android:vlayout:1.0.6@aar",
+            "banner"                   : "com.bigkoo:convenientbanner:2.0.5",
 
             //rx1
             "rxandroid"                : "io.reactivex:rxandroid:1.2.1",

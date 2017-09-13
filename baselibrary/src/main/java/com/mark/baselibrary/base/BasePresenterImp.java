@@ -1,7 +1,7 @@
 package com.mark.baselibrary.base;
 
 
-import com.mark.baselibrary.utils.NetUtils.RequestListener;
+import android.content.Context;
 
 import java.lang.ref.WeakReference;
 
@@ -10,16 +10,33 @@ import java.lang.ref.WeakReference;
  * Created by Mark.Han on 2017/7/13.
  */
 
-public abstract class BasePresenterImp<M extends BaseModelImp> implements RequestListener {
+public abstract class BasePresenterImp<V extends BaseView, M extends BaseModelImp> implements BasePresenter {
     private WeakReference mView;
     protected M mModel;
+    protected Context context;
 
-
-    public <V extends BaseView> void attach(V view) {
+    @Override
+    public void attach(BaseView view) {
         if (mView == null) {
             mView = new WeakReference(view);
         }
         initData();
+    }
+
+    @Override
+    public V getView() {
+        if (mView != null) {
+            return (V) mView.get();
+        }
+        return null;
+    }
+
+    @Override
+    public Context getContext() {
+        if (mView != null) {
+            return (Context) mView.get();
+        }
+        return null;
     }
 
     public void setModel(M model) {
@@ -50,12 +67,6 @@ public abstract class BasePresenterImp<M extends BaseModelImp> implements Reques
         getView().hideLoading();
     }
 
-    public <V extends BaseView> V getView() {
-        if (mView != null) {
-            return (V) mView.get();
-        }
-        return null;
-    }
 
     public void Error(int what, String error) {
         cancelDialog(what);

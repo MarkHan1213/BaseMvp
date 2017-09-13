@@ -64,13 +64,13 @@ public abstract class NetWorkImp<T> implements OnResponseListener<T> {
     @Override
     public void onSucceed(int what, Response<T> response) {
         if (response.responseCode() == 200) {
-            onSuccess(what, response);
+            onSuccess(what, response.get());
         } else {
             onFail(what, response);
         }
     }
 
-    protected abstract void onSuccess(int what, Response<T> response);
+    protected abstract void onSuccess(int what, T response);
 
     @Override
     public void onFailed(int what, Response<T> response) {

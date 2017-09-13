@@ -23,3 +23,29 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# nohttp
+-dontwarn com.yolanda.nohttp.**
+-keep class com.yolanda.nohttp.**{*;}
+
+# nohttp-okhttp
+-dontwarn com.yanzhenjie.nohttp.**
+-keep class com.yanzhenjie.nohttp.**{*;}
+
+# okhttp
+-dontwarn okhttp3.**
+-keep class okhttp3.** { *;}
+-dontwarn okio.**
+-keep class okio.** { *;}
+
+-dontwarn java.lang.invoke.*
+-dontwarn **$$Lambda$*
+
+
+#如果提示ButterKnife 打包出错，可以取消第一行注释，如若还不行，打开全部注释试试
+# -dontwarn butterknife.internal.**
+#-keep class butterknife.** { *; }
+# -dontwarn butterknife.internal.**
+#-keep class **$$ViewBinder { *; }
+#-keepclasseswithmembernames class * { @butterknife.* <fields>;}
+#-keepclasseswithmembernames class * { @butterknife.* <methods>;}

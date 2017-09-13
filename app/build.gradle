@@ -20,14 +20,14 @@ android {
         release {
             buildConfigField "boolean", "LOG_DEBUG", "false"
             minifyEnabled false
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            shrinkResources true // 清除无用的resource
         }
 
         debug {
             buildConfigField "boolean", "LOG_DEBUG", "true"
             minifyEnabled false
-            zipAlignEnabled true
+
         }
 
         applicationVariants.all { variant ->
@@ -63,7 +63,11 @@ dependencies {
     debugCompile project(path: ':baselibrary', configuration: 'debug')
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile rootProject.ext.dependencies["junit"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    compile 'com.contrarywind:Android-PickerView:3.2.6'
+//    compile 'com.jpeng:JPTabBar:1.2.5'
+    compile 'com.yinglan.alphatabs:library:1.0.8'
 }

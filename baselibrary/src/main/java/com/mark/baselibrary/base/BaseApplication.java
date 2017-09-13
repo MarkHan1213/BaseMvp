@@ -3,7 +3,10 @@ package com.mark.baselibrary.base;
 import android.app.Application;
 import android.content.Context;
 
+import com.mark.baselibrary.BuildConfig;
+import com.mark.baselibrary.utils.L;
 import com.mark.baselibrary.utils.NetUtils.NoHttpUtils;
+import com.mark.baselibrary.utils.Utils;
 
 /*
                    _ooOoo_
@@ -37,6 +40,10 @@ public class BaseApplication extends Application {
         super.onCreate();
         instance = this;
         NoHttpUtils.init(this);
+        Utils.init(this);
+        L.getConfig().setLogSwitch(BuildConfig.DEBUG)
+                .setGlobalTag("--Main--")
+                .setFileFilter(L.E);
     }
 
     @Override

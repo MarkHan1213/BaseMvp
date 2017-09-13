@@ -1,5 +1,7 @@
 package com.mark.baselibrary.base;
 
+import android.content.Context;
+
 import com.mark.baselibrary.utils.NetUtils.RequestListener;
 
 /**
@@ -17,4 +19,6 @@ public interface BasePresenter<T extends BaseView> extends RequestListener {
     void cancelDialog(int what);
 
     T getView();
+
+    Context getContext();
 }
