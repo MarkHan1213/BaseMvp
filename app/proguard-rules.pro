@@ -43,9 +43,9 @@
 
 
 #如果提示ButterKnife 打包出错，可以取消第一行注释，如若还不行，打开全部注释试试
-# -dontwarn butterknife.internal.**
+#-dontwarn butterknife.internal.**
 #-keep class butterknife.** { *; }
-# -dontwarn butterknife.internal.**
+#-dontwarn butterknife.internal.**
 #-keep class **$$ViewBinder { *; }
 #-keepclasseswithmembernames class * { @butterknife.* <fields>;}
 #-keepclasseswithmembernames class * { @butterknife.* <methods>;}

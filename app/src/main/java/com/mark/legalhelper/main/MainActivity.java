@@ -97,10 +97,5 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainVie
         mPresenter.showTips();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
 }
